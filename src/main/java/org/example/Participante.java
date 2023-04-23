@@ -11,9 +11,10 @@ import java.util.Properties;
 @Data
 public class Participante {
     private  String nombre;
-    private int puntos ;
+    private int puntos,puntosTotales ;
     private List<Pronostico> pronosticoParticipante;
     private int cantAciertos;
+    private boolean bonus;
 
     public Participante(String nombre) {
         this.nombre = nombre;
@@ -56,9 +57,9 @@ public class Participante {
                 "Nombre: " + nombre + '\n' +
                 " puntos: " + puntos + '\n' +
                 " Cantidad De Aciertos: " + cantAciertos + '\n' +
-        " Cantitad De Apuestas :" + pronosticoParticipante.size() +'\n'+
-                " Bonus Por Acerter Una Ronda Completa: " +acertoTodo()
-
+                " Cantitad De Apuestas :" + pronosticoParticipante.size() +'\n'
+               /* " Bonus Por Acerter Una Ronda Completa: " +bonus +'\n'+
+                "Puntos Totales: "+puntosTotales+'\n'*/
 
                 +"\n";
     }

@@ -35,7 +35,8 @@ public class Main {
         List<Partido>   listaPartidos = listarPartidos(rondas);
         List<Participante> participantesLista = listarParticipantes(participanteDatos.listarTodos(),listaPartidos);
 
-        /*System.out.println(rondas);
+
+       /* System.out.println(rondas);
         System.out.println(listaPartidos);*/
         System.out.println(participantesLista);
     }
@@ -48,7 +49,7 @@ public class Main {
                 if (r.getId() == resultado.getRonda()) {
                     Equipo equipo1 = new Equipo(resultado.getEquipo1());
                     Equipo equipo2 = new Equipo(resultado.getEquipo2());
-                    Partido partido = new Partido(resultado.getRonda(), equipo1, equipo2);
+                    Partido partido = new Partido(r.getId(),equipo1, equipo2);
                     partido.setGolesEquipo1( resultado.getCantGoles1());
                     partido.setGolesEquipo2( resultado.getCantGoles2());
                     r.agregarPartido(partido);
@@ -60,7 +61,7 @@ public class Main {
                 Ronda r = new Ronda(resultado.getRonda());
                 Equipo equipo1 = new Equipo(resultado.getEquipo1());
                 Equipo equipo2 = new Equipo(resultado.getEquipo2());
-                Partido partido = new Partido(resultado.getRonda(), equipo1, equipo2);
+                Partido partido = new Partido(r.getId(),equipo1, equipo2);
                 partido.setGolesEquipo1( resultado.getCantGoles1());
                 partido.setGolesEquipo2( resultado.getCantGoles2());
                 r.agregarPartido(partido);
@@ -126,8 +127,11 @@ public class Main {
             }
         }
         try {
+
             for (Participante p : participantes) {
+
                 p.puntosYCantitadDeAciertos();
+
             }
         }catch (Exception e){}
 

@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="371f38ad-4242-4ca6-82c6-a946c767d57b" name="Changes" comment="Commit para ver que pasa, falta el test y el metodo de dar puntos extra si acertaron toda una ronda" />
+    <list default="true" id="371f38ad-4242-4ca6-82c6-a946c767d57b" name="Changes" comment="Commit para ver que pasa, falta el test y el metodo de dar puntos extra si acertaron toda una ronda">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Participante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Participante.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Partido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Partido.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -87,5 +92,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Commit para ver que pasa, falta el test y el metodo de dar puntos extra si acertaron toda una ronda" />
     <option name="LAST_COMMIT_MESSAGE" value="Commit para ver que pasa, falta el test y el metodo de dar puntos extra si acertaron toda una ronda" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Tp_Integrador_Grupo5$Main.ic" NAME="Main Coverage Results" MODIFIED="1682254420309" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>org.example.*</FILTER>
+    </SUITE>
   </component>
 </project>

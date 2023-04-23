@@ -11,7 +11,7 @@ public class Partido {
     private int idPartido ;
     private static int contador = 0;
 
-    public Partido(int ronda,Equipo equipo1, Equipo equipo2) {
+    public Partido(int ronda, Equipo equipo1, Equipo equipo2) {
         this.ronda=ronda;
         this.equipo1 = equipo1;
         this.equipo2 = equipo2;
