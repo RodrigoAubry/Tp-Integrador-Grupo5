@@ -9,41 +9,7 @@ import java.util.List;
 
 public class ParticipanteH2 {
 
-    public void crearTabla() {
-        try {
-            // crear una conexión a la base de datos
-            Connection conn = DriverManager.getConnection("jdbc:h2:~/test");
-
-            // crear una tabla
-            Statement stmt = conn.createStatement();
-            String sql = "CREATE TABLE users (id INT PRIMARY KEY, name VARCHAR(255))";
-            stmt.executeUpdate(sql);
-
-            // cerrar la conexión
-            conn.close();
-        } catch (SQLException ex) {
-            throw new RuntimeException(ex);
-        }
-    }
-
-    public void insertarDatos() {
-        try {
-            // crear una conexión a la base de datos
-            Connection conn = DriverManager.getConnection("jdbc:h2:~/test");
-
-            // insertar datos en la tabla
-            Statement stmt = conn.createStatement();
-            String sql = "INSERT INTO users VALUES (1, 'John')";
-            stmt.executeUpdate(sql);
-
-            // cerrar la conexión
-            conn.close();
-        } catch (SQLException ex) {
-            throw new RuntimeException(ex);
-        }
-    }
     static final String DB_URL = "jdbc:h2:mem:;INIT=runscript from 'init.sql'";
-
 
     Connection conn = null;
     Statement stmt = null;
@@ -55,7 +21,6 @@ public class ParticipanteH2 {
         List<PronosticoPersistenciaDeDatos> pronosticos = null;
         try {
             pronosticos = new ArrayList<>();
-
 
             conn = DriverManager.getConnection(DB_URL);
             stmt = conn.createStatement();

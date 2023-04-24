@@ -3,6 +3,8 @@ package org.example;
 
 import org.example.persistenciaDeDatos.PronosticoPersistenciaDeDatos;
 import org.example.persistenciaDeDatos.ResultadoPersistenciaDeDatos;
+import org.example.persistenciaDeDatos.archivo.ParticipanteArchivo;
+import org.example.persistenciaDeDatos.archivo.RondaArchivo;
 import org.example.persistenciaDeDatos.h2.ParticipanteH2;
 import org.example.persistenciaDeDatos.h2.RondaH2;
 
@@ -12,15 +14,14 @@ import java.util.List;
 
 public class Main {
 
-    public static <Rondah2> void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException{
 
-      /*  ************CONEXION CON ARCHIVO ************/
+        /*  ************CONEXION CON ARCHIVO ************/
+      /*  ParticipanteArchivo participanteDatos = new ParticipanteArchivo();
+        RondaArchivo rondaDato = new RondaArchivo();*/
 
-       // ParticipanteArchivo participanteDatos = new ParticipanteArchivo();
-       // RondaArchivo rondaDato = new RondaArchivo();
-
-    /*      System.out.println(participanteArchivo.listarTodos().toString());
-            System.out.println( estarategiaArchivo.listarTodos().toString());*/
+      /* System.out.println(participanteDatos.listarTodos().toString());
+        System.out.println(rondaDato.listarTodos().toString());*/
 
         /*  ************CONEXION CON H2 ************/
 
@@ -39,7 +40,7 @@ public class Main {
        // System.out.println(rondas);
        // System.out.println(participanteDatos);
        // System.out.println(listaPartidos);
-        System.out.println(participantesLista);
+          System.out.println(participantesLista);
     }
 
     public static List<Ronda> listarRondas(List<ResultadoPersistenciaDeDatos> ronda) {
@@ -139,6 +140,7 @@ public class Main {
                         p.setBonus(true);
                     }
                 }
+                p.sumarBonus();
                 a++;
             }
         }catch (Exception e){

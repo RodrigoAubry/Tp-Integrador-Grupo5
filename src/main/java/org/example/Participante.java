@@ -30,13 +30,26 @@ public class Participante {
             FileInputStream input = new FileInputStream("valorDePuntos.properties");
             prop.load(input);
             int multiplicadorPuntos = Integer.parseInt(prop.getProperty("multiplicadorPuntos", "1"));
-            int valorBonus = Integer.parseInt(prop.getProperty("valorBonus","0"));
+
 
             for (Pronostico p : pronosticoParticipante){
                 puntos += multiplicadorPuntos * p.puntos();
                 cantAciertos += p.cantAciertos();
+            }
+        }catch (Exception e){
+            System.out.println("Error al leer el archivo");
+        }
+    }
+    public void sumarBonus(){
+        try {
+            // Cargar archivo de configuración
+            Properties prop = new Properties();
+            FileInputStream input = new FileInputStream("valorDePuntos.properties");
+            prop.load(input);
+            int valorBonus = Integer.parseInt(prop.getProperty("valorBonus","0"));
 
-                if(!bonus){
+            for (Pronostico p:pronosticoParticipante) {
+                if(bonus){
                     this.puntosTotales=valorBonus+puntos;
                 }else{
                     this.puntosTotales=puntos;
@@ -59,8 +72,6 @@ public class Participante {
                 " Cantidad De Aciertos: " + cantAciertos + '\n' +
                 " Cantitad De Apuestas :" + pronosticoParticipante.size() +'\n'+
                 " Bonus Por Acerter Una Ronda Completa: " +bonus +'\n'+
-                " Puntos Totales: "+puntosTotales+'\n'+
-
-                        "\n";
+                " Puntos Totales: "+puntosTotales+'\n';
     }
 }

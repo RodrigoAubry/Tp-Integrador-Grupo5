@@ -1,5 +1,6 @@
 package org.example.persistenciaDeDatos.archivo;
 
+import lombok.Data;
 import org.example.Resultado;
 import org.example.persistenciaDeDatos.PronosticoPersistenciaDeDatos;
 
@@ -8,7 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-
+@Data
 public class ParticipanteArchivo {
 
     public List<PronosticoPersistenciaDeDatos> listarTodos() throws IOException {
@@ -18,9 +19,9 @@ public class ParticipanteArchivo {
             String archivoPronostico= allLines.get(j);
             String[] campos = archivoPronostico.split(",");
             Resultado resultado;
-            if(campos[2]!=""){
+            if(!campos[2].equals("")){
                resultado = Resultado.GANADOR_EQUIPO1;
-            } else if (campos[3]!="") {
+            } else if (!campos[3].equals("")) {
                 resultado = Resultado.EMPATE;
             }else { resultado = Resultado.GANADOR_EQUIPO2;}
             PronosticoPersistenciaDeDatos pronostico = new PronosticoPersistenciaDeDatos(campos[0], campos[1],campos[5], resultado );
