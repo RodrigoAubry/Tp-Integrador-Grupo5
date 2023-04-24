@@ -3,8 +3,6 @@ package org.example;
 
 import org.example.persistenciaDeDatos.PronosticoPersistenciaDeDatos;
 import org.example.persistenciaDeDatos.ResultadoPersistenciaDeDatos;
-import org.example.persistenciaDeDatos.archivo.ParticipanteArchivo;
-import org.example.persistenciaDeDatos.archivo.RondaArchivo;
 import org.example.persistenciaDeDatos.h2.ParticipanteH2;
 import org.example.persistenciaDeDatos.h2.RondaH2;
 
@@ -104,10 +102,9 @@ public class Main {
                     for(Partido partido : partidos) {
                         if (participanteArchivo.getEquipo1().equals(partido.getEquipo1().getNombre()) &&
                                 participanteArchivo.getEquipo2().equals(partido.getEquipo2().getNombre())){
-                            Pronostico pronostico = new Pronostico();
-                            pronostico.darPronostico(partido , participanteArchivo.getResultado());
+                            Pronostico pronostico = new Pronostico(partido,participanteArchivo.getResultado());
 
-                            p.setPronosticoParticipante(pronostico);
+                            p.agregarPronosticoParticipante(pronostico);
 
                         }
                     }
@@ -120,9 +117,8 @@ public class Main {
                 for(Partido partido : partidos) {
                     if (participanteArchivo.getEquipo1().equals(partido.getEquipo1().getNombre()) &&
                             participanteArchivo.getEquipo2().equals(partido.getEquipo2().getNombre())){
-                        Pronostico pronostico = new Pronostico();
-                        pronostico.darPronostico(partido , participanteArchivo.getResultado());
-                        participante.setPronosticoParticipante(pronostico);
+                        Pronostico pronostico = new Pronostico(partido,participanteArchivo.getResultado());
+                        participante.agregarPronosticoParticipante(pronostico);
                     }
                 }
                 participantes.add(participante);

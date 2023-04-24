@@ -8,7 +8,7 @@ public class Pronostico {
     private Resultado pronostico;
 
 
-    public void darPronostico(Partido partido, Resultado pronostico) {
+    public Pronostico(Partido partido, Resultado pronostico) {
         this.partido = partido;
         this.pronostico = pronostico;
     }

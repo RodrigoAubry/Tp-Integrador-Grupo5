@@ -60,7 +60,7 @@ public class Participante {
         }
     }
 
-    public void setPronosticoParticipante(Pronostico pronosticoParticipante) {
+    public void agregarPronosticoParticipante(Pronostico pronosticoParticipante) {
         this.pronosticoParticipante.add(pronosticoParticipante);
     }
 
