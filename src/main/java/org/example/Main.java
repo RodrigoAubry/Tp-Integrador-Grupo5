@@ -19,7 +19,7 @@ public class Main {
        // ParticipanteArchivo participanteDatos = new ParticipanteArchivo();
        // RondaArchivo rondaDato = new RondaArchivo();
 
-    /*        System.out.println(participanteArchivo.listarTodos().toString());
+    /*      System.out.println(participanteArchivo.listarTodos().toString());
             System.out.println( estarategiaArchivo.listarTodos().toString());*/
 
         /*  ************CONEXION CON H2 ************/
@@ -36,8 +36,9 @@ public class Main {
         List<Participante> participantesLista = listarParticipantes(participanteDatos.listarTodos(),listaPartidos);
 
 
-       /* System.out.println(rondas);
-        System.out.println(listaPartidos);*/
+       // System.out.println(rondas);
+       // System.out.println(participanteDatos);
+       // System.out.println(listaPartidos);
         System.out.println(participantesLista);
     }
 
@@ -127,13 +128,22 @@ public class Main {
             }
         }
         try {
-
+            int a=0;
+            int aux=participantes.get(0).getPronosticoParticipante().get(0).getPartido().getRonda();
             for (Participante p : participantes) {
 
                 p.puntosYCantitadDeAciertos();
 
+                if(p.getPronosticoParticipante().get(a).getPartido().getRonda()==aux){
+                    if(p.getCantAciertos()>=2){
+                        p.setBonus(true);
+                    }
+                }
+                a++;
             }
-        }catch (Exception e){}
+        }catch (Exception e){
+            System.out.println("No se encuentra el archivo properties");
+        }
 
         return participantes;
     }

@@ -3,7 +3,6 @@ package org.example;
 import lombok.Data;
 
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -24,31 +23,32 @@ public class Participante {
     }
 
 
-    public void puntosYCantitadDeAciertos() throws IOException {
+    public void puntosYCantitadDeAciertos(){
         try {
             // Cargar archivo de configuración
             Properties prop = new Properties();
             FileInputStream input = new FileInputStream("valorDePuntos.properties");
             prop.load(input);
-            int multiplicador = Integer.parseInt(prop.getProperty("multiplicador", "1"));
+            int multiplicadorPuntos = Integer.parseInt(prop.getProperty("multiplicadorPuntos", "1"));
+            int valorBonus = Integer.parseInt(prop.getProperty("valorBonus","0"));
 
             for (Pronostico p : pronosticoParticipante){
-                puntos += multiplicador * p.puntos();
+                puntos += multiplicadorPuntos * p.puntos();
                 cantAciertos += p.cantAciertos();
+
+                if(!bonus){
+                    this.puntosTotales=valorBonus+puntos;
+                }else{
+                    this.puntosTotales=puntos;
+                }
             }
-        }catch (Exception e){}
+        }catch (Exception e){
+            System.out.println("Error al leer el archivo");
+        }
     }
 
     public void setPronosticoParticipante(Pronostico pronosticoParticipante) {
         this.pronosticoParticipante.add(pronosticoParticipante);
-    }
-
-    public boolean acertoTodo (){
-        boolean acierto = false;
-        if(pronosticoParticipante.size() == cantAciertos){
-            acierto = true;
-        }
-        return acierto;
     }
 
     @Override
@@ -57,10 +57,10 @@ public class Participante {
                 "Nombre: " + nombre + '\n' +
                 " puntos: " + puntos + '\n' +
                 " Cantidad De Aciertos: " + cantAciertos + '\n' +
-                " Cantitad De Apuestas :" + pronosticoParticipante.size() +'\n'
-               /* " Bonus Por Acerter Una Ronda Completa: " +bonus +'\n'+
-                "Puntos Totales: "+puntosTotales+'\n'*/
+                " Cantitad De Apuestas :" + pronosticoParticipante.size() +'\n'+
+                " Bonus Por Acerter Una Ronda Completa: " +bonus +'\n'+
+                " Puntos Totales: "+puntosTotales+'\n'+
 
-                +"\n";
+                        "\n";
     }
 }
